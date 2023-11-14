@@ -1,0 +1,70 @@
+
+<!-- app.component.html -->
+<div class="container mt-3">
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="cedula" class="form-label">Cédula</label>
+          <input type="text" class="form-control" id="cedula" formControlName="cedula" required>
+        </div>
+    
+        <div class="mb-3">
+          <label for="apellido" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="apellido" formControlName="apellido" required>
+        </div>
+    
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+        </div>
+    
+        <div class="mb-3">
+          <label for="nota1" class="form-label">Nota 1</label>
+          <input type="number" class="form-control" id="nota1" formControlName="nota1" required>
+        </div>
+    
+        <div class="mb-3">
+          <label for="nota2" class="form-label">Nota 2</label>
+          <input type="number" class="form-control" id="nota2" formControlName="nota2" required>
+        </div>
+    
+        <div class="mb-3">
+          <label for="asistencia" class="form-label">% Asistencia</label>
+          <input type="number" class="form-control" id="asistencia" formControlName="asistencia" required>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+  
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>Cédula</th>
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th>Nota 1</th>
+          <th>Nota 2</th>
+          <th>% Asistencia</th>
+          <th>Promedio</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.cedula }}</td>
+          <td>{{ student.apellido }}</td>
+          <td>{{ student.nombre }}</td>
+          <td>{{ student.nota1 }}</td>
+          <td>{{ student.nota2 }}</td>
+          <td>{{ student.asistencia }}%</td>
+          <td>{{ student.promedio }}</td>
+          <td>{{ student.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="globalPromedio">
+      <p>Promedio Global: {{ globalPromedio }}</p>
+    </div>
+  </div>
+
+  
